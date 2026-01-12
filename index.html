@@ -64,10 +64,35 @@
             gap: 10px;
         }
 
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 136, 204, 0.3);
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+        }
+
+        .telegram-icon {
+            font-size: 18px;
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -244,6 +269,128 @@
             padding: 100px 20px;
         }
 
+        .blog {
+            background: var(--bg-secondary);
+            padding: 100px 20px;
+        }
+
+        .blog h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-date {
+            color: var(--accent-primary);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .blog-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--accent-primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .blog-card:hover .read-more {
+            gap: 10px;
+        }
+
+        .community {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .community h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .community p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .community-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 50px;
+            background: white;
+            color: var(--accent-primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .community-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .community-icon {
+            font-size: 24px;
+        }
+
         .courses h2 {
             text-align: center;
             font-size: 42px;
@@ -398,8 +545,14 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                gap: 15px;
-                font-size: 14px;
+                gap: 10px;
+                font-size: 12px;
+                flex-wrap: wrap;
+            }
+
+            .telegram-btn {
+                padding: 8px 15px;
+                font-size: 12px;
             }
 
             .hero h1 {
@@ -411,13 +564,24 @@
             }
 
             .features h2,
-            .courses h2 {
+            .courses h2,
+            .blog h2,
+            .community h2 {
                 font-size: 32px;
             }
 
             .modal-content {
                 padding: 30px;
                 margin: 20px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-btn {
+                padding: 15px 35px;
+                font-size: 16px;
             }
         }
     </style>
@@ -430,7 +594,11 @@
                 <li><a href="#home" class="nav-link">Beranda</a></li>
                 <li><a href="#features" class="nav-link">Fitur</a></li>
                 <li><a href="#courses" class="nav-link">Kursus</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
                 <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="https://t.me/CryptoS_Rooms" target="_blank" class="telegram-btn" rel="noopener noreferrer">
+                    <span class="telegram-icon">📱</span> Join Telegram
+                </a></li>
             </ul>
         </nav>
     </header>
@@ -519,6 +687,84 @@
         </div>
     </section>
 
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2>📰 Blog & Artikel Terbaru</h2>
+            <div class="blog-grid">
+                <div class="blog-card" onclick="showBlogModal('web3-guide')">
+                    <div class="blog-image">🌐</div>
+                    <div class="blog-content">
+                        <div class="blog-date">12 Januari 2025</div>
+                        <h3>Panduan Lengkap Memulai Web3 untuk Pemula</h3>
+                        <p>Pelajari dasar-dasar Web3, dari wallet hingga interaksi dengan smart contract pertama Anda.</p>
+                        <span class="read-more">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="showBlogModal('airdrop-strategy')">
+                    <div class="blog-image">🎁</div>
+                    <div class="blog-content">
+                        <div class="blog-date">10 Januari 2025</div>
+                        <h3>5 Strategi Airdrop Hunting yang Terbukti Berhasil</h3>
+                        <p>Tips dan trik mendapatkan airdrop cryptocurrency dengan strategi yang sudah teruji.</p>
+                        <span class="read-more">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="showBlogModal('trading-tips')">
+                    <div class="blog-image">📈</div>
+                    <div class="blog-content">
+                        <div class="blog-date">8 Januari 2025</div>
+                        <h3>10 Kesalahan Umum Trader Pemula dan Cara Menghindarinya</h3>
+                        <p>Hindari kesalahan mahal dalam trading dengan mengetahui jebakan umum yang sering dialami pemula.</p>
+                        <span class="read-more">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="showBlogModal('defi-101')">
+                    <div class="blog-image">💰</div>
+                    <div class="blog-content">
+                        <div class="blog-date">5 Januari 2025</div>
+                        <h3>Mengenal DeFi: Masa Depan Keuangan Terdesentralisasi</h3>
+                        <p>Eksplorasi dunia DeFi dan bagaimana Anda bisa memanfaatkan protokol DeFi dengan aman.</p>
+                        <span class="read-more">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="showBlogModal('nft-guide')">
+                    <div class="blog-image">🖼️</div>
+                    <div class="blog-content">
+                        <div class="blog-date">3 Januari 2025</div>
+                        <h3>NFT untuk Pemula: Cara Membeli dan Menjual NFT</h3>
+                        <p>Panduan step-by-step untuk memulai perjalanan Anda di dunia NFT dan digital collectibles.</p>
+                        <span class="read-more">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+
+                <div class="blog-card" onclick="showBlogModal('security')">
+                    <div class="blog-image">🔒</div>
+                    <div class="blog-content">
+                        <div class="blog-date">1 Januari 2025</div>
+                        <h3>Keamanan Crypto: Lindungi Aset Digital Anda</h3>
+                        <p>Pelajari best practices untuk menjaga keamanan wallet dan aset cryptocurrency Anda dari hacker.</p>
+                        <span class="read-more">Baca Selengkapnya →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community">
+        <div class="container">
+            <h2>🚀 Bergabung dengan Komunitas Kami</h2>
+            <p>Dapatkan update terbaru, tips eksklusif, dan diskusi seputar Web3, Airdrop & Trading</p>
+            <a href="https://t.me/CryptoS_Rooms" target="_blank" class="community-btn" rel="noopener noreferrer">
+                <span class="community-icon">📱</span>
+                Join Telegram Channel
+            </a>
+        </div>
+    </section>
+
     <footer id="about">
         <div class="container">
             <p>&copy; 2025 Crypto Room. Platform Edukasi Web3 Indonesia</p>
@@ -597,6 +843,132 @@
             }
         };
 
+        const blogContent = {
+            'web3-guide': {
+                title: '🌐 Panduan Lengkap Memulai Web3',
+                content: `
+                    <h2>Panduan Lengkap Memulai Web3 untuk Pemula</h2>
+                    <p style="color: var(--accent-primary); margin-bottom: 20px;">12 Januari 2025</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Apa itu Web3?</h3>
+                    <p>Web3 adalah generasi ketiga dari internet yang berfokus pada desentralisasi. Berbeda dengan Web2 yang dikontrol oleh perusahaan besar, Web3 memberikan kontrol penuh kepada pengguna atas data dan aset digital mereka.</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Langkah Memulai:</h3>
+                    <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                        <li><strong>Setup Wallet:</strong> Install MetaMask atau Trust Wallet sebagai dompet digital Anda</li>
+                        <li><strong>Keamanan First:</strong> Simpan seed phrase di tempat yang aman, jangan pernah bagikan ke siapapun</li>
+                        <li><strong>Mulai dengan Testnet:</strong> Praktikkan transaksi di jaringan testnet sebelum menggunakan uang asli</li>
+                        <li><strong>Eksplorasi dApps:</strong> Coba aplikasi terdesentralisasi seperti Uniswap atau OpenSea</li>
+                        <li><strong>Join Komunitas:</strong> Bergabung dengan komunitas untuk terus belajar dan update</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>Tips Penting:</strong> Jangan terburu-buru, pahami setiap konsep dengan baik sebelum melanjutkan ke tahap berikutnya.</p>
+                `
+            },
+            'airdrop-strategy': {
+                title: '🎁 Strategi Airdrop Hunting',
+                content: `
+                    <h2>5 Strategi Airdrop Hunting yang Terbukti Berhasil</h2>
+                    <p style="color: var(--accent-primary); margin-bottom: 20px;">10 Januari 2025</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Strategi Efektif:</h3>
+                    <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                        <li><strong>Research Early Projects:</strong> Cari proyek yang belum launch token tapi sudah memiliki funding dari VC besar</li>
+                        <li><strong>Active Participation:</strong> Gunakan produk mereka secara konsisten, jangan hanya satu kali transaksi</li>
+                        <li><strong>Diversifikasi:</strong> Jangan fokus hanya di satu proyek, spread effort ke 10-15 proyek potensial</li>
+                        <li><strong>Follow Official Channels:</strong> Monitor Twitter, Discord, dan announcement resmi proyek</li>
+                        <li><strong>Document Everything:</strong> Simpan screenshot dan track semua aktivitas Anda</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Red Flags:</h3>
+                    <p>Hati-hati dengan proyek yang meminta private key, menjanjikan return pasti, atau tidak memiliki team yang jelas.</p>
+                `
+            },
+            'trading-tips': {
+                title: '📈 Kesalahan Trader Pemula',
+                content: `
+                    <h2>10 Kesalahan Umum Trader Pemula</h2>
+                    <p style="color: var(--accent-primary); margin-bottom: 20px;">8 Januari 2025</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Kesalahan yang Harus Dihindari:</h3>
+                    <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                        <li><strong>Trading Tanpa Rencana:</strong> Selalu buat entry dan exit strategy sebelum membuka posisi</li>
+                        <li><strong>FOMO (Fear of Missing Out):</strong> Jangan buy saat harga sudah pump tinggi</li>
+                        <li><strong>Overleveraging:</strong> Hindari leverage tinggi terutama untuk pemula</li>
+                        <li><strong>Tidak Set Stop Loss:</strong> Selalu protect modal dengan stop loss yang tepat</li>
+                        <li><strong>Emotional Trading:</strong> Jangan revenge trading saat loss</li>
+                        <li><strong>Ignore Risk Management:</strong> Jangan risk lebih dari 2-5% modal per trade</li>
+                        <li><strong>Overtrading:</strong> Quality over quantity, fokus pada setup yang bagus</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>Remember:</strong> Trading adalah marathon bukan sprint. Konsistensi lebih penting dari profit besar sekali.</p>
+                `
+            },
+            'defi-101': {
+                title: '💰 Mengenal DeFi',
+                content: `
+                    <h2>Mengenal DeFi: Masa Depan Keuangan</h2>
+                    <p style="color: var(--accent-primary); margin-bottom: 20px;">5 Januari 2025</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Apa itu DeFi?</h3>
+                    <p>DeFi (Decentralized Finance) adalah sistem keuangan yang berjalan di blockchain tanpa intermediary seperti bank. Semua proses otomatis melalui smart contract.</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Keuntungan DeFi:</h3>
+                    <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                        <li><strong>Permissionless:</strong> Siapa saja bisa akses tanpa perlu verifikasi KYC</li>
+                        <li><strong>Transparent:</strong> Semua transaksi tercatat di blockchain dan bisa diaudit</li>
+                        <li><strong>Higher Yield:</strong> Potensi return lebih tinggi dari bank tradisional</li>
+                        <li><strong>24/7 Access:</strong> Market tidak pernah tutup</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Risiko yang Perlu Diperhatikan:</h3>
+                    <p>Smart contract bugs, impermanent loss di liquidity pool, dan regulatory uncertainty. Selalu DYOR (Do Your Own Research).</p>
+                `
+            },
+            'nft-guide': {
+                title: '🖼️ NFT untuk Pemula',
+                content: `
+                    <h2>NFT untuk Pemula: Panduan Lengkap</h2>
+                    <p style="color: var(--accent-primary); margin-bottom: 20px;">3 Januari 2025</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Apa itu NFT?</h3>
+                    <p>NFT (Non-Fungible Token) adalah aset digital unik yang kepemilikannya tercatat di blockchain. Berbeda dengan cryptocurrency yang bisa ditukar 1:1, setiap NFT memiliki nilai dan karakteristik unik.</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Cara Membeli NFT:</h3>
+                    <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                        <li><strong>Setup Wallet:</strong> Install MetaMask dan isi dengan ETH untuk gas fee</li>
+                        <li><strong>Pilih Marketplace:</strong> OpenSea, Blur, atau Magic Eden</li>
+                        <li><strong>Research Project:</strong> Check team, roadmap, dan community</li>
+                        <li><strong>Verify Collection:</strong> Pastikan verified badge untuk avoid fake</li>
+                        <li><strong>Connect & Buy:</strong> Connect wallet dan lakukan pembelian</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Tips Investasi NFT:</h3>
+                    <p>Fokus pada utility dan community. NFT dengan utility jelas cenderung lebih sustainable dibanding pure art project.</p>
+                `
+            },
+            'security': {
+                title: '🔒 Keamanan Crypto',
+                content: `
+                    <h2>Keamanan Crypto: Lindungi Aset Digital Anda</h2>
+                    <p style="color: var(--accent-primary); margin-bottom: 20px;">1 Januari 2025</p>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Best Practices Keamanan:</h3>
+                    <ul style="text-align: left; margin: 20px 0; line-height: 2;">
+                        <li><strong>Hardware Wallet:</strong> Gunakan Ledger atau Trezor untuk holding jangka panjang</li>
+                        <li><strong>Multiple Wallets:</strong> Pisahkan wallet untuk trading dan holding</li>
+                        <li><strong>Seed Phrase Security:</strong> Tulis di kertas, simpan di safe, jangan foto/screenshot</li>
+                        <li><strong>Verify URLs:</strong> Selalu double check URL website sebelum connect wallet</li>
+                        <li><strong>Revoke Approvals:</strong> Regularly revoke smart contract approvals di revoke.cash</li>
+                        <li><strong>2FA Enabled:</strong> Aktifkan 2FA di semua exchange</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 25px; margin-bottom: 15px;">Red Flags Scam:</h3>
+                    <p>DM dari "admin", link airdrop mencurigakan, promise unrealistic returns, dan permintaan seed phrase. If it's too good to be true, it probably is.</p>
+                `
+            }
+        };
+
         // Fungsi scroll ke top
         function scrollToTop() {
             window.scrollTo({
@@ -620,7 +992,32 @@
                 `;
                 
                 modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Fungsi untuk menampilkan blog modal
+        function showBlogModal(type) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const content = blogContent[type];
+            
+            if (content) {
+                modalBody.innerHTML = `
+                    <div>
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 20px;">${content.title.split(' ')[0]}</div>
+                        ${content.content}
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center;">
+                            <p style="color: var(--text-secondary); margin-bottom: 15px;">Dapatkan update artikel terbaru di Telegram kami!</p>
+                            <a href="https://t.me/CryptoS_Rooms" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 30px; background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600;">
+                                📱 Join Telegram Channel
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             }
         }
 
